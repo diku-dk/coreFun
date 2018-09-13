@@ -1,0 +1,86 @@
+-- This file has been generated from package.yaml by hpack version 0.28.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 41a273443914172cb9a8def9e10017f247c15db55ac436aa68e484833835aa48
+
+name:           corefun
+version:        0.1.0.0
+synopsis:       CoreFun Implementation
+description:    Please see the README on Github at <https://github.com/diku-dk/coreFun#readme>
+homepage:       https://github.com/diku-dk/coreFun#readme
+bug-reports:    https://github.com/diku-dk/coreFun/issues
+author:         Petur Andrias Højgaard Jacobsen
+maintainer:     peturhjac@gmail.com
+copyright:      2018 Petur Andrias Højgaard Jacobsen
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/diku-dk/coreFun
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , megaparsec
+    , mtl
+    , parsec
+  exposed-modules:
+      Ast
+      CommonAst
+      Converter
+      Core.CoreAst
+      Core.CoreParser
+      Core.CorePrettyPrinter
+      Errors
+      FirstMatch
+      Interpreter
+      Parser
+      TransErrors
+      Transpiler
+      TypeChecker
+  other-modules:
+      Paths_corefun
+  default-language: Haskell2010
+
+executable corefun-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , corefun
+    , megaparsec
+    , mtl
+    , parsec
+  other-modules:
+      Paths_corefun
+  default-language: Haskell2010
+
+test-suite corefun-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , corefun
+    , megaparsec
+    , mtl
+    , parsec
+  other-modules:
+      Paths_corefun
+  default-language: Haskell2010
